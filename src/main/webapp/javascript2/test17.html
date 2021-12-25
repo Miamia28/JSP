@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function check() {
+		// fruits4 셀렉트박스에서 선택된 항목의 값(value 속성) 출력
+// 		alert(document.fr.fruits4.value);
+		
+		// "과일을 선택하세요" 항목이 선택된 경우 다른 항목을 선택하도록
+		// 오류메세지 출력하고 작업 중단
+		// 1. "과일을 선택하세요" 항목의 값("")이 value 속성에 저장되어 있는 경우를 판별
+// 		if(document.fr.fruits4.value == "") {
+// 			alert("과일 선택 필수!");
+// 		}
+		
+		// 2. "과일을 선택하세요" 항목 인덱스의 selected 속성값이 true 인지 판별
+		// => 셀렉트박스 객체의 options 배열에 접근(첫번째 OPTION 태그의 selected 값 true 판별)
+		if(document.fr.fruits4.options[0].selected) { // 첫번째 OPTION 태그 항목이 선택됐을 경우
+			alert("과일 선택 필수!");
+		}
+	}
+	
+	function itemSelected(selectedValue) {
+		alert("선택 항목 : " + selectedValue);
+	}
+</script>
+</head>
+<body>
+	<h1>test17.html</h1>
+	<form action="a.jsp" method="get" name="fr">
+		<select name="fruits">
+			<option value="Apple">사과</option>
+			<option value="Banana">바나나</option>
+			<option value="Lemon">레몬</option>
+		</select>
+		<hr>
+		<select name="fruits2">
+			<option value="Apple">사과</option>
+			<option value="Banana" selected="selected">바나나</option> <!-- 기본 선택 -->
+			<option value="Lemon" disabled="disabled">레몬</option> <!-- 선택 불가(비활성화) -->
+		</select>
+		<hr>
+		<!-- 셀렉트박스 size 속성 지정 시 리스트 박스 형태로 변경됨 -->
+		<select name="fruits3" size="2"> <!-- 목록을 한번에 2개까지 표시하고 나머지 스크롤링 -->
+			<option value="Apple">사과</option>
+			<option value="Banana">바나나</option>
+			<option value="Lemon">레몬</option>
+		</select>
+		<hr>
+		<!-- 셀렉트박스 항목 변경을 감지하는 이벤트 : onchange -->
+		<!-- 셀렉트박스 항목이 변경되면 선택된 항목의 값(value)을 itemSelected() 함수에 전달 -->
+		<select name="fruits4" onchange="itemSelected(this.value)">
+			<option value="">과일을 선택하세요</option>
+			<option value="Apple">사과</option>
+			<option value="Banana">바나나</option>
+			<option value="Lemon">레몬</option>
+		</select>
+		<!-- 확인 버튼 클릭 시 check() 함수를 호출하여 셀렉트박스 선택 항목 판별 -->
+		<input type="button" value="확인" onclick="check()">
+	</form>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

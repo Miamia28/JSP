@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 기본적으로 HTML 및 자바스크립트는 위 -> 아래 방향으로 차례대로 번역 및 실행됨 -->
+<script type="text/javascript">
+	// window 객체의 onload 속성에 함수선언문을 저장할 경우
+	// 문서(body) 로딩이 완료된 후 자동으로 해당 함수가 호출됨
+// 	window.onload = function() {
+// 		// 이 alert() 함수는 body 태그의 onload 이벤트와 마찬가지로 문서 로딩 완료 후 실행됨
+// 		alert("작업 - 1");
+// 	}	
+	
+	function func1() {
+		alert("작업 - 1"); // 1번 스크립트
+		// 이 함수는 body 태그 내의 onload 이벤트에서 호출하므로
+		// body 태그 내의 모든 본문이 로딩된 후 호출되는 함수
+		// => 따라서, 이 함수 내에서는 body 태그 내의 요소에 접근도 가능함
+		//    즉, body 의 내용이 모두 로딩된 후이므로 body 의 모든 요소 접근 및 제어 가능한 시점이됨
+		
+		// document.body 객체를 사용하여 body 태그 내의 조작 가능
+		document.body.style.background = "GRAY";
+// 		document.body.innerHTML = "<h3>자바스크립트에 의해 삽입된 텍스트</h3>";
+
+		// body 요소 로딩 완료 후 "insertPoint" 라는 id 값을 갖는 태그에 HTML 태그 삽입
+		document.getElementById("insertPoint").innerHTML 
+	}
+</script>
+</head>
+<body onload="func1()"> <!-- body 태그의 본문 로딩 완료 후 onload 속성의 함수 func1() 호출됨 -->
+	<h1>test11.html</h1>
+	<div id="insertPoint"></div>
+	<script>alert("작업 - 2");</script> <!-- 2번 스크립트 -->
+	<script>alert("작업 - 3");</script> <!-- 3번 스크립트 -->
+	<h1>body 태그 내의 모든 요소 로딩 완료!</h1>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

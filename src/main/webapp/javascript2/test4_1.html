@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function windowClose() {
+		// 현재 창을 연 부모 창에 알림(alert()) 표시
+		// => 자신의 부모에 접근하려면 window.opener 형식으로 접근
+		window.opener.alert("새 창을 닫았습니다."); // 부모창에 alert 창 표시
+		
+		// 현재 새 창으로 열린 창을 닫기
+		window.close();
+	}
+</script>
+</head>
+<body>
+	<h1>Javascript - test4_1.html</h1>
+	<!-- 창닫기 버튼을 클릭하면 현재 창 닫기 -->
+	<input type="button" value="창 닫기" onclick="window.close()"><br>
+	<input type="button" value="창 닫기 및 알림 표시" onclick="windowClose()">
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

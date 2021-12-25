@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function printCheckbox() {
+		// 체크박스에서 name 속성이 같은 요소는 모두 하나의 배열로 관리됨
+		// => 이 때, 배열의 이름은 name 속성의 이름을 사용
+		// => 배열에 저장된 실제 데이터는 value 속성에 접근
+		// => 체크박스 체크 여부는 checked 속성에 접근(체크 : true, 미체크 : false)
+// 		alert(document.fr.hobby[0].value + " : " + document.fr.hobby[0].checked);
+		
+		// 취미(게임, 등산, 노래)가 아무것도 체크되지 않았을 경우
+		// "취미를 최소 하나 이상 선택하세요!" 메세지 출력
+// 		if(!document.fr.hobby[0].checked 
+// 				&& !document.fr.hobby[1].checked && !document.fr.hobby[2].checked) {
+// 			alert("취미를 최소 하나 이상 선택하세요!");
+// 			return; // 현재 수행 중인 작업(함수)을 종료하고 돌아감	
+// 		}
+		
+		// 반복문을 사용하면 hobby 체크박스 3개를 한꺼번에 확인 가능
+		// 1. 일반 for문 사용(hobby 배열 크기만큼 반복)
+// 		for(var i = 0; i < document.fr.hobby.length; i++) {
+// 			alert(document.fr.hobby[i].value + " : " + document.fr.hobby[i].checked);
+// 		}
+		
+		// hobby 배열에 접근하는 코드가 길기 때문에 hobby 배열을 별도의 변수에 저장하여 사용 가능
+		var hobbyArr = document.fr.hobby; // document.fr.hobby 대신 hobbyArr 변수 지정 시 동일
+		
+// 		for(var i = 0; i < hobbyArr.length; i++) {
+// 			alert(hobbyArr[i].value + " : " + hobbyArr[i].checked);
+// 		}
+		
+		// 2. for...of 문 사용 시 인덱스 없이 전체 접근 가능
+		for(var hobby of hobbyArr) { // 우변의 배열(hobbyArr)에서 체크박스 객체를 좌변 hobby 에 저장
+			alert(hobby.value + " : " + hobby.checked);
+		}
+	}
+	
+	function printRadio() {
+		// 라디오버튼도 체크박스와 마찬가지로 name 속성이 동일한 요소는 배열로 관리됨
+		// 라디오버튼 항목(남, 여) 중 하나도 선택되지 않은 경우 
+		// "성별 선택 필수!" 메세지 출력 후 작업 중단
+		var genderArr = document.fr.gender;
+		if(!genderArr[0].checked && !genderArr[1].checked) {
+			alert("성별 선택 필수!");
+			return;
+		}
+		
+		// 성별 중 선택된 항목의 값을 출력(ex. 성별 : 여)
+		if(genderArr[0].checked) { // "남" 선택 시
+			alert("성별 : " + genderArr[0].value);
+		} else { // "여" 선택 시
+			alert("성별 : " + genderArr[1].value);
+		}
+		
+	}
+	
+	function checkAll() {
+		// "전체선택" 체크 박스 체크 상태에 따라 취미(게임, 등산, 노래) 항목 체크 상태를 일괄 변경
+		// ex) "전체선택" 체크 시 : 게임, 등산, 노래 항목을 모두 체크하고
+		//                          "전체선택" 텍스트를 "전체해제" 로 변경하기
+		//     "전체선택" 체크 해제 시 : 게임, 등산, 노래 항목을 모두 체크 해제
+		//                               "전체해제" 텍스트를 "전체선택" 으로 변경하기
+		if(document.fr.check_all.checked) { // 전체선택 체크 시
+			// 취미 항목의 모든 체크박스 상태(checked 속성값)를 체크상태(true) 로 변경
+			document.fr.hobby[0].checked = true; // 게임 항목 체크
+			document.fr.hobby[1].checked = true; // 등산 항목 체크
+			document.fr.hobby[2].checked = true; // 노래 항목 체크
+			
+			// "전체선택" 텍스트를 "전체해제" 로 변경할 경우(선택 사항)
+			// => document.getElementById() 함수를 사용하여 id 속성값이 "checkAll" 인 객체 접근 
+// 			document.getElementById("checkAll").innerHTML = "전체해제";
+		} else { // 전체선택 체크해제 시
+			// 취미 항목의 모든 체크박스 상태(checked 속성값)를 체크해제상태(false) 로 변경
+			document.fr.hobby[0].checked = false; // 게임 항목 체크해제
+			document.fr.hobby[1].checked = false; // 등산 항목 체크해제
+			document.fr.hobby[2].checked = false; // 노래 항목 체크해제
+			
+			// "전체해제" 텍스트를 "전체선택" 으로 변경할 경우(선택 사항)
+// 			document.getElementById("checkAll").innerHTML = "전체선택";
+		}
+	}
+</script>
+</head>
+<body>
+	<h1>test16.html</h1>
+	<form action="test16-2.html" method="get" name="fr">
+		<!-- 
+		체크박스, 라디오버튼 등 묶음으로 관리하는 요소는
+		name 속성값을 같게 설정할 경우 자동으로 그룹화가 이루어짐
+		=> 체크박스의 경우 복수개의 체크박스 항목이 배열로 관리가 되도록 변함
+		=> 라디오버튼의 경우 복수개의 항목 중 하나만 선택(단일 선택)되도록 변함
+		   (배열로 관리되는 점은 체크박스와 동일함)
+		-->
+		취미 : 
+		<input type="checkbox" name="hobby" value="Game" checked="checked">게임
+		<input type="checkbox" name="hobby" value="등산">등산
+		<input type="checkbox" name="hobby" value="노래">노래
+		<input type="checkbox" name="check_all" value="전체선택" onclick="checkAll()"><span id="checkAll">전체선택</span>
+		<input type="button" value="취미 체크완료" onclick="printCheckbox()">
+		<br>
+		성별 : 
+		<input type="radio" name="gender" value="남">남
+		<input type="radio" name="gender" value="여">여
+		<input type="button" value="성별 선택완료" onclick="printRadio()">
+	</form>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

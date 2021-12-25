@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- script 태그를 사용하여 자바스크립트를 작성할 영역을 표시(선언문) -->
+<!-- head 태그 또는 body 태그 내의 어디서든 사용 가능 -->
+<script type="text/javascript">
+	//이 위치에 자바스크립트 코드가 기술됨
+	// 이 주석은 자바스크립트에서 한 줄 주석 처리를 위한 주석
+	/*
+	 이 주석은 자바스크립트에서 
+	 여러 줄 주석 처리를 위한 주석 
+	 */
+	
+	// 자바스크립트에서 변수 사용(기본 문법 데이터타입 변수명 = 값;)
+	// => 단, 자바의 데이터타입과 동일한 데이터타입을 사용하지 않는다! (동일한 타입도 존재함)
+	// => 문자(String), 숫자(Number), 논리(Boolean), 특수값 Null 사용 가능
+	//    다만, 별도로 타입을 지정하지 않고 일반적인 공통타입으로 변수 선언 시
+	//    저장되는 데이터에 따라 각각의 타입이 자동으로 결정됨
+	// => 일반적인 변수 선언 시 var 또는 let 또는 const 중 하나를 타입처럼 사용
+	// => 변수명 지정 시 자바의 식별자 작성 규칙과 거의 동일함
+	//	var num;
+	//	let num2;
+	//	const num3;
+	
+	
+	// 변수에 저장 가능한 데이터 타입
+	var str = "자바스크립트"; // 문자열 저장하는 String 타입으로 취급됨
+	var num = 100; // 숫자를 저장하는 Number 타입으로 취급됨
+	var b = true; // Boolean 타입 (true 또는 false) 으로 취급됨
+	
+	// 주의! 특수한 타입
+	var v1; // 변수에 아무 데이터도 저장하지 않을 경우 undefined 타입으로 취급됨
+	var v2 = null; // 특수한 값인 null 값을 저장 가능
+	
+	// 특정 변수의 데이터타입을 확인하는 방법 : typeof 키워드 사용
+	// => 기본 문법 : typeof 변수명; 또는 typeof 데이터;
+	
+	
+	// =================== 변수 사용 연습 ======================
+	// document.write() 함수를 호출하여 웹페이지에 출력할 데이터를 전달하면 페이지에 출력
+	var data = 100;
+	document.write(data);
+	
+	var data2 = "Hello, World!";
+	document.write("<br>" + data2); // HTML 태그도 그대로 출력 가능함
+	
+	let data3 = "Hello, World!";
+	document.write("<br>" + data3);
+	
+	document.write("<br>");
+	document.write("data3 의 타입 : " + typeof(data3));
+	
+	document.write("<br>");
+	document.write("data1 의 타입 : " + typeof(data));
+	document.write("<br>");
+	
+	var data4; // 데이터가 저장되지 않을 경우 undefined 타입으로 설정됨
+	document.write("data4 의 타입 : " + typeof(data4));
+	document.write("<br>");
+	data4 = 50; // data4 변수가 number 타입으로 변경됨
+	document.write("data4 의 타입 : " + typeof(data4));
+	document.write("<br>");
+	data4 = "Hello, World!"; // data4 변수가 string 타입으로 변경됨
+	document.write("data4 의 타입 : " + typeof(data4));
+	document.write("<br>");
+	
+	// ==========================================================
+	
+	// var 을 사용하여 변수 선언 시 동일한 이름의 변수를 다시 선언하더라도 선언 가능하며
+	// 다른 타입의 데이터로 변경하더라도 아무런 문제 없이 사용 가능함
+	var num1 = 10;
+// 	alert(num1);	
+	
+	var num1 = "홍길동"; // 기존 정수 저장된 num1 대신 새로운 num1 을 선언하고, 문자열 저장 가능
+// 	alert(num1);
+	// ------------------------------------------------------------------
+	// let 을 사용하여 변수 선언 시 동일한 이름의 변수는 다시 선언 불가능
+	// => 따라서, 동일한 이름의 변수 선언 시 코드 오류가 발생하여 스크립트 실행 불가능
+	let num2 = 10;
+// 	alert(num2);	
+	
+	
+	// 이 코드는 주석처리를 하지 않으면 스크립트 실행 불가능하므로 주의!
+// 	let num2 = "홍길동"; // 이 코드는 오류가 발생하여 제대로 실행되지 못하며 다른 스크립트도 동작 X
+// 	alert(num2);
+
+	// ----------------------------------------------------------------------
+	// const 로 선언한 변수는 상수로 취급되어 저장된 값을 변경할 수 없음
+	const num3 = 30;
+	alert(num3); // 30 출력됨
+	
+	// num3 변수값을 변경할 경우 코드 오류가 발생함
+// 	num3 = 100;
+// 	alert(num3);
+	
+</script>
+<!-- 외부 자바스크립트 파일 불러오기 -->
+<!-- script 태그 내에 src="자바스크립트파일명" 속성을 사용하여 불러오기(포함하기) -->
+<script type="text/javascript" src="test1.js"></script>
+<!-- 현재 폴더 상위에 있는 js 폴더 내의 outter_test1.js 파일 불러오기(포함하기) -->
+<script src="../js/outter_test1.js"></script>
+</head>
+<body>
+	<!-- HTML 주석 -->
+	<script type="text/javascript">
+		document.write("이 곳은 body 영역 h1 태그 앞입니다. <br>");
+	</script>
+	
+	<h1>이 곳은 body 영역입니다.</h1>
+	
+	<script type="text/javascript">
+		document.write("이 곳은 body 영역 h1 태그 뒤입니다. <br>");
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+

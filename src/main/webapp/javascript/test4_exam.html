@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	// 외부로부터 정수 1개를 입력받아 변수 num 에 저장 후
+	// 1 ~ num 까지 1씩 증가하면서 제어변수 i 값을 출력하기(document.write())
+// 	var num = prompt("정수 1개 입력"); // string 타입으로 입력됨
+	
+// 	// for문 내에서 비교연산자를 통한 연산시에도 string -> number 타입으로 자동 변환됨
+// 	for(var i = 1; i <= num; i++) {
+// 		document.write(i + " ");
+// 	}
+	
+// 	document.write("<br><hr>");
+	// ==============================================================
+	// 변수 num2 에 정수 1개를 저장한 후
+	// for문을 사용하여 1 ~ num2 까지 1씩 증가하면서
+	// 홀수의 합(oddTotal), 짝수의 합(evenTotal)을 각각 계산하여 출력
+	// ex) num2 가 10일 때 1 ~ 10까지 홀수의 합 = 25, 짝수의 합 = 30
+// 	var num2 = 10;
+	
+// 	// 합계를 누적할 변수 선언 
+// 	var oddTotal = 0, evenTotal = 0;
+	
+// 	for(var i = 1; i <= num2; i++) {
+// 		if(i % 2 == 1) { // 홀수
+// 			oddTotal += i;
+// 		} else { // 짝수
+// 			evenTotal += i;
+// 		}
+// 	}
+	
+// 	document.write("1 ~ " + num2 + "까지 홀수의 합 = " + oddTotal + "<br>");
+// 	document.write("1 ~ " + num2 + "까지 짝수의 합 = " + evenTotal);
+	
+	// ===================================================================
+	// 외부로부터 패스워드를 입력받아 "1234" 이면 "패스워드 일치!" 출력 후 종료
+	// 아니면, "패스워드 불일치!" 출력 후 다시 패스워드 입력 작업 반복하기
+// 	var password = prompt("패스워드를 입력하세요.");
+// // 	alert("입력하신 패스워드 : " + password);
+	
+// 	if(password == "1234") {
+// 		alert(password + " : 패스워드 일치!");
+// 	} else {
+// 		alert(password + " : 패스워드 불일치!");
+// 	}
+
+// 	var password = prompt("패스워드를 입력하세요.");
+// 	var isRepeat = true; // 패스워드 입력 반복 여부를 결정할 변수
+	
+// 	while(isRepeat) { // isRepeat 변수값이 true 일 동안 반복(false 일 때 반복 종료함)
+// 		if(password == "1234") {
+// 			alert(password + " : 패스워드 일치!");
+// 			// while 문을 종료하기위해 isRepeat 변수값을 false 로 변경
+// 			isRepeat = false;
+// 		} else {
+// 			alert(password + " : 패스워드 불일치!");
+// 			// 패스워드가 일치하지 않을 경우 새로운 패스워드를 입력받기
+// 			password = prompt("패스워드를 입력하세요.");
+// 		}
+// 	}
+	// --------------------------------------------
+	var password;
+	while(true) {
+		password = prompt("패스워드를 입력하세요.");
+		
+		if(password == "1234") {
+			alert(password + " : 패스워드 일치!");
+			// 패스워드가 일치할 경우 while 문 반복 종료하고 빠져나가기
+			break;
+		} else {
+			alert(password + " : 패스워드 불일치!");
+		}
+	}
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

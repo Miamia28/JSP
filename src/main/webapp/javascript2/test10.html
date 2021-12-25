@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	// document 객체 기초
+	// document 객체가 HTML 문서의 시작을 가리킴(= DOM 객체의 진입점)
+// 	alert(document); // object HTMLDocument => HTML 문서 자체에 해당
+
+// 	alert("document..documentElement : " + document.documentElement); 
+	// object HTMLHtmlElement => <html> 태그에 해당
+	
+// 	alert("document.head : " + document.head); 
+	// object HTMLHeadElement => <head> 태그에 해당
+	
+	// document.head 속성을 활용하여 <head> 태그내의 노드(각 태그 = 객체)에 접근 가능
+	// => head 태그 내의 자식 노드에 접근 시 childNodes 속성 사용
+// 	alert("head 태그 내의 자식 노드 수 : " + document.head.childNodes.length); // 6
+	
+	// for 문을 사용하여 head 태그 내의 자식 노드에 순서대로 접근
+	// => META 태그 -> TITLE 태그 -> SCRIPT 태그에 순서대로 접근
+	//    (단, 각 태그마다 줄바꿈으로 인해 #TEXT 노드가 추가되어 있음)
+	for(var i = 0; i < document.head.childNodes.length; i++) {
+		// childNodes 배열 내의 각 요소에 접근하여 해당 요소 이름 출력
+// 		document.write(
+// 				document.head.childNodes[i] + " : " + document.head.childNodes[i].nodeName + "<br>");
+	}
+	
+// 	alert("document.body : " + document.body); 
+// 	// object HTMLBodyElement => <body> 태그에 해당
+	// 단, body 태그 내의 문서 내용이 존재하지 않을 경우 null 값이 출력됨
+	// 만약, document.body 접근 코드보다 먼저 body 태그 데이터가 생성되어 있다면 객체 출력됨
+
+</script>
+</head>
+<body>
+	<script type="text/javascript">
+// 		alert("document.body : " + document.body);
+	</script>
+	
+	<h1>test10.html</h1>
+	<div>목록 시작</div>
+	<ul>
+		<li>항목1</li>
+		<li>항목2</li>
+	</ul>
+	<div>목록 끝</div>
+	<hr>
+	<script type="text/javascript">
+		// for...of 문을 사용하여 body 태그 내의 자식 노드에 차례대로 접근하기
+		for(var node of document.body.childNodes) {
+			// body 태그 내의 자식 요소(childNodes) 배열에 접근하여 각 요소를 node 변수에 저장
+			alert(node + " : " + node.nodeName);
+			// 주의! ul 태그 내의 li 태그는 body 태그의 자식이 아니므로 포함되지 않음
+		}
+	</script>
+	
+	<!-- 
+	이 부분부터는 body 태그 내의 자식 노드 중 sciprt 노드보다 아래쪽에 위치하므로
+	위의 script 태그 실행 시점에서는 아직 로딩되기 전이기 때문에
+	for문 실행 시 자식 노드에 포함되지 않는다!
+	-->
+	<h3>body 태그 자식 노드 접근 후</h3>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

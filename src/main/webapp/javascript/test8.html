@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="./test8.js"></script>
+<script type="text/javascript"> 
+	/*
+	리턴값이 있는 함수 정의
+	- 함수 실행 후 원래 위치로 돌아갈 때 어떤 값(데이터)을 호출한 위치로 전달하는 함수
+	- 함수 선언 시 별도의 리턴타입을 명시하지 않고, 
+	  return 문 사용 시 전달된 데이터의 타입에 따라 리턴되는 데이터 타입이 자동으로 결정됨
+	- 함수 호출한 곳에서 리턴되는 데이터를 전달받아 사용 가능
+	*/
+	function getMessage() {
+		// 함수 호출한 곳으로 값을 리턴하기 위해 return 문 사용
+		return 5;
+	}
+	
+	var result = getMessage();
+	document.write("리턴값 = " + result + ", 타입 : " + typeof(result) + "<br>");
+	
+	// ====================================================================
+	// 1 ~ 10까지 합을 계산 후 합계를 리턴하는 함수 getTotal() 정의 후
+	// 함수를 호출한 후 리턴되는 값(55)을 전달받아 출력하기
+	function getTotal() {
+		var total = 0;
+		for(var i = 1; i <= 10; i++) {
+			total += i;
+		}
+		
+		return total;
+	}
+	
+	var resultTotal = getTotal();
+	document.write("1 ~ 10 까지의 합 = " + resultTotal + "<br>");
+	
+	// 추가 작업. printData() 함수 정의
+	function printData() {
+		// 특정 함수 내에서 다른 함수를 호출할 수 있다.
+		alert(getTotal());
+	}
+	
+// 	printData();
+	
+	// ===================================================================================
+	// test8.js 파일의 login() 함수를 호출하여 아이디 및 패스워드("admin", "1234") 전달 후
+	// 로그인 결과("로그인 성공!" 또는 "로그인 실패!") 를 리턴받아 출력하기
+	var loginResult = login("admin", "1234");
+	alert("로그인 결과 : " + loginResult);
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	/*
+	document 객체의 getElementById() 함수
+	- id 값(id 선택자)이 지정된 특정 태그에 접근하기 위해 해당 태그의 객체를 얻어오는 함수
+	  => 지정된 id 에 해당하는 태그의 요소를 객체 형태로 리턴
+	- 함수 파라미터로 태그에 지정된 id 선택자의 속성값을 문자열로 전달
+	ex) document.getElementById("header"); => "header" 라는 속성값을 id 로 갖는 태그를 객체로 리턴
+	*/
+
+	// body 태그 내의 요소가 로딩 완료 후 수행할 함수 선언문 작성
+	window.onload = function() {
+		// h1 태그에 지정된 "header-1" 이라는 id 속성값을 사용하여 해당 태그 객체 가져오기
+		var header1 = document.getElementById("header-1");
+// 		alert(header1);
+		// 리턴받은 HeadingElement 객체의 각 속성을 제어하면 "header-1" 이 지정된 h1 태그만 제어 가능
+		header1.style.background = "RED";
+		header1.innerHTML = "getElementById() 에 의한 접근";
+		
+		// "header-2" 속성값을 갖는 태그를 header2 변수에 객체로 리턴받기
+		// 해당 태그의 텍스트를 "innerHTML 태그로 텍스트 내용 변경" 변경하기
+		// 해당 태그의 배경색상을 색상코드를 사용하여 변경
+		var header2 = document.getElementById("header-2");
+		header2.innerHTML = "innerHTML 태그로 텍스트 내용 변경";
+		header2.style.background = "#FFCCCC";
+	}
+	
+	function func1() {
+		// id 속성값 "status" 에 해당하는 객체 가져오기
+		// 해당 객체의 텍스트를 "JSP 수업 시작!" 으로 변경
+		var elem = document.getElementById("status");
+		elem.innerHTML = "<h2>JSP 수업 시작!</h2>";
+	}
+	
+	function func2() {
+		// id 속성값 "status" 에 해당하는 객체 가져오기
+		// 해당 객체의 텍스트를 "JSP 수업 끝!" 으로 변경	
+		var elem = document.getElementById("status");
+		elem.innerHTML = "<h2>JSP 수업 끝!</h2>";
+	}
+</script>
+</head>
+<body>
+	<h1 id="header">test12.html</h1>
+	<h1 id="header-1">Header - 1</h1>
+	<h1 id="header-2">Header - 2</h1>
+	<hr>
+	<div id="status"><h2>JSP 수업 상태</h2></div>
+	<!-- input type="button" 속성을 사용하여 버튼 2개("수업 시작", "수업 종료") 생성 -->
+	<!-- 수업 시작 버튼 클릭 시 func1() 함수 호출, 수업 종료 버튼 클릭 시 func2() 함수 호출 -->
+	<input type="button" value="수업 시작" onclick="func1()">
+	<input type="button" value="수업 종료" onclick="func2()">
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>document 객체 기초</title>
+<script type="text/javascript">
+	/*
+	window.document 객체
+	- 주로 document 객체명만으로 사용
+	- HTML 문서 정보(내용)를 관리하는 객체
+	- 문서 정보 확인, 내용 변경 등의 작업 수행 가능
+	- 속성 : title, bgColor, fgColor 등
+	  함수 : write(), writeln() 등
+	*/
+	function func1() {
+		// HTML 문서 제목(title 태그 내용) 확인
+		alert(document.title);
+	}
+
+	function func2() {
+		// HTML 문서 제목 변경(= 제목표시줄 내용 변경)
+		document.title = "타이틀 변경";
+	}
+
+	function func3() {
+		// HTML 문서 색상 정보 출력(bgColor, fgColor 속성 활용)
+		alert("bgColor : " + document.bgColor + ", fgColor : " + document.fgColor);
+	}
+
+	function func4() {
+		// HTML 문서 색상 정보 변경(bgColor, fgColor 속성 활용)
+		// => 속성값으로 "색상명" 또는 "#RGB코드값"(ex. "#RRGGBB") 등으로 지정
+		//    빛의 3원색 원리로 RED 2자리, GREEN 2자리, BLUE 2자리의 16진수를 사용
+		//    즉, 값이 커질 수록 해당 색상이 진해지며, 
+		//    모든 값을 최대치(FFFFFF)로 설정하면 흰색, 모든 값을 최소치(000000)로 설정하면 검정색
+// 		document.bgColor = "RED"; // 배경색을 빨간색으로 변경
+		document.bgColor = "#FF0000"; // 배경색을 빨간색으로 변경
+// 		document.fgColor = "YELLOW"; // 전경색(= 주로 텍스트)을 노란색으로 변경
+		document.fgColor = "#FFFF00"; // 전경색(= 주로 텍스트)을 노란색으로 변경
+	}
+	
+	function func5(color) {
+		// 전달받은 색상(color)을 사용하여 문서 배경색 변경
+		document.bgColor = color;
+		alert(color + " 색상으로 배경색 변경 완료!");
+	}
+	
+	// document.write() 함수를 사용하여 현재 문서 내용에 원하는 내용 추가
+	// => HTML 태그 형식 사용 가능
+	document.write("<h1>test7.html - document.write()</h1>");
+	
+</script>
+</head>
+<body>
+<!-- 	<h1>test7.html</h1> -->
+	<input type="button" value="문서 제목 출력" onclick="func1()"><br>
+	<input type="button" value="문서 제목 변경" onclick="func2()"><br>
+	<input type="button" value="문서 배경색 출력" onclick="func3()"><br>
+	<input type="button" value="문서 배경색 변경" onclick="func4()"><br>
+	<hr>
+	<!--
+	RadioButton(라디오버튼)
+	- 주로 복수개의 항목 중 하나를 선택하는 컴포넌트  
+	- input type="radio" 속성을 사용하여 라디오버튼 생성 가능
+	- 하나의 그룹으로 묶어야 하는 라디오버튼은 반드시 name 속성값을 동일하게 설정해야함
+	- input 태그 뒤에 텍스트 입력 시 라디오버튼에 텍스트가 부착됨
+	-->
+	<!-- 선택된 라디오버튼의 value 값에 해당하는 색상으로 배경색을 변경(하나의 함수로 처리) -->
+	<input type="radio" name="bgColor" value="CYAN" onclick="func5('CYAN')">CYAN
+	<input type="radio" name="bgColor" value="SKYBLUE" onclick="func5('SKYBLUE')">SKYBLUE
+	<input type="radio" name="bgColor" value="MAGENTA" onclick="func5('MAGENTA')">MAGENTA
+	
+	<!-- 
+	파라미터 전달 시 this 를 사용하면 현재 태그를 객체로 접근 가능하며
+	this.xxx 형식으로 태그 내의 속성값에 접근 가능함
+	=> ex) this.value 지정 시 현재 태그 내의 value 속성값에 접근
+	-->
+	<input type="radio" name="bgColor" value="GRAY" onclick="func5(this.value)">GRAY
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

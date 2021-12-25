@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="./test7.js"></script>
+<script type="text/javascript">
+	/*
+	매개변수를 갖는 함수 정의
+	- 외부에서 함수 호출 시 전달할 데이터가 있는 함수
+	- 자바와 기본적인 형태는 유사하나 매개변수 선언 시 변수명만 기술하면 됨
+	*/
+	
+	// 데이터를 text 변수로 전달받아 출력하는 showMessage() 함수 정의
+	function showMessage(data) {
+		// 외부에서 전달받은 데이터의 타입에 따라 변수 data 의 타입이 결정됨
+		// => 만약, 전달받은 데이터가 없을 경우 undefined 타입으로 undefined 값이 저장됨
+		document.write(data + " : " + typeof(data) + "<br>");
+	}
+	
+	showMessage("Hello, World!"); // Hello, World! : string
+	showMessage(500); // 500 : number 
+	showMessage(true); // true : boolean
+	showMessage(); // undefined : undefined
+	
+	// -----------------------------------------------------
+	document.write("<hr>");
+	
+	// 전달받은 데이터가 없을 경우 기본값 설정하는 방법 두 가지
+	// 1. 매개변수에 값을 직접 저장하는 방법
+// 	function showMessage2(data = "전달받은 데이터 없음") {
+// 		// 전달받은 데이터(전달인자)가 없으면 "전달받은 데이터 없음" 문자열로 초기화
+// 		document.write(data + " : " + typeof(data) + "<br>");
+// 	}
+	
+	// 2. 함수 내에서 if문을 사용하여 undefined 일 경우 기본값을 저장
+	function showMessage2(data) {
+		if(data == undefined) {
+			data = "전달받은 데이터 없음222";
+		}
+		document.write(data + " : " + typeof(data) + "<br>");
+	}
+	
+	showMessage2(); // 전달받은 데이터 없음 : string
+	showMessage2(10); // 10 : number
+	
+	// -----------------------------------------------------
+	document.write("<hr>");
+	// test7.js 파일의 login() 함수를 호출하여 전달인자로 아이디와 패스워드 전달하면
+	// 비교 후 "로그인 성공" 또는 "로그인 실패" 를 출력하기
+	// => 단, login() 함수 내에서 판별에 사용할 아이디와 패스워드를 "admin", "1234" 로 가정
+	login("admin", "1111"); // "로그인 실패" 출력됨
+	login("admin", "1234"); // "로그인 성공" 출력됨
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
