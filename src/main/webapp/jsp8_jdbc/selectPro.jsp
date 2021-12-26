@@ -10,7 +10,7 @@
     request.setCharacterEncoding("UTF-8");
     
     
-    int student_no = Integer.parseInt(request.getParameter("studenet_no"));
+   	String student_no = request.getParameter("student_no");
     String name = request.getParameter("name");
     String email = request.getParameter("email");
     String phone = request.getParameter("phone");
